@@ -33,6 +33,29 @@
     cursor:pointer;transition:.15s}
   nav.menu a:hover{background:var(--brand-tint);color:var(--brand)}
   nav.menu a.active{background:var(--brand);color:#fff}
+  nav.menu a.ext{color:var(--brand);font-weight:700}
+  nav.menu a.ext:hover{background:var(--brand-tint)}
+
+  /* ---------- notification banner ---------- */
+  .notif{margin:22px 0 0;border-radius:14px;overflow:hidden;border:1px solid var(--line);
+    box-shadow:var(--shadow);background:#fff;display:flex;align-items:stretch;text-decoration:none}
+  .notif:hover{box-shadow:0 10px 26px rgba(20,20,42,.12);transform:translateY(-2px)}
+  .notif{transition:.18s}
+  .notif .accent{width:6px;background:linear-gradient(180deg,#F0A500,#E0574B)}
+  .notif .ic{flex:none;width:64px;display:grid;place-items:center;font-size:26px;
+    background:linear-gradient(135deg,#FFF4E0,#FDE4DD)}
+  .notif .body{flex:1;padding:16px 18px;display:flex;flex-direction:column;justify-content:center}
+  .notif .body .t{display:flex;align-items:center;gap:10px}
+  .notif .body h3{font-size:15px;font-weight:800;color:var(--ink)}
+  .notif .live{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:800;
+    letter-spacing:.6px;text-transform:uppercase;color:#C0392B;background:#FDECEA;
+    padding:3px 9px;border-radius:999px}
+  .notif .live::before{content:"";width:7px;height:7px;border-radius:50%;background:#E0574B;
+    box-shadow:0 0 0 0 rgba(224,87,75,.5);animation:pulse 2.2s ease-out infinite}
+  .notif .body p{font-size:13px;color:var(--sub);margin-top:3px}
+  .notif .go{flex:none;display:flex;align-items:center;padding:0 22px;font-weight:700;
+    font-size:13.5px;color:var(--brand);white-space:nowrap}
+  @media(max-width:860px){.notif .go{padding:0 14px}.notif .ic{width:52px}}
 
   /* ---------- page switching ---------- */
   .page{display:none;animation:fade .25s ease}
@@ -202,6 +225,7 @@
       <a data-go="home" class="active">Home</a>
       <a data-go="process">Process Maps</a>
       <a data-go="resources">Resources</a>
+      <a href="https://sites.google.com/one-line.com/one-notification" target="_blank" rel="noopener" class="ext">Notifications ↗</a>
     </nav>
   </div>
 </header>
@@ -225,6 +249,20 @@
       </div>
     </div>
   </div>
+
+  <section class="block" style="padding-bottom:0">
+    <div class="wrap">
+      <a class="notif" href="https://sites.google.com/one-line.com/one-notification" target="_blank" rel="noopener">
+        <span class="accent"></span>
+        <span class="ic">📢</span>
+        <span class="body">
+          <span class="t"><h3>System Notifications</h3><span class="live">Live</span></span>
+          <p>Planned maintenance, incidents &amp; service advisories across ONE systems — view the One-Notification dashboard.</p>
+        </span>
+        <span class="go">Open dashboard ↗</span>
+      </a>
+    </div>
+  </section>
 
   <section class="block">
     <div class="wrap">
@@ -332,6 +370,7 @@
         <a class="res"><div class="ic">🧭</div><div><h4>ServiceNow Impact Matrix</h4><p>2D decision matrix — effort tier × impact.</p></div></a>
         <a class="res"><div class="ic">🔐</div><div><h4>IAM &amp; Access Requests</h4><p>Standard SR catalog for system access.</p></div></a>
         <a class="res"><div class="ic">📊</div><div><h4>Ticket Dashboard</h4><p>Live INC / SR / CR metrics (Data Studio).</p></div></a>
+        <a class="res" href="https://sites.google.com/one-line.com/one-notification" target="_blank" rel="noopener"><div class="ic">📢</div><div><h4>System Notifications ↗</h4><p>One-Notification dashboard — maintenance &amp; advisories.</p></div></a>
         <a class="res"><div class="ic">📝</div><div><h4>Templates</h4><p>VPD, Business Spec &amp; Functional Spec forms.</p></div></a>
       </div>
     </div>
