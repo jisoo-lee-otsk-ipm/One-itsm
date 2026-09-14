@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ONE ITSM Process Maps — SR · INC · CR</title>
+  <style>
+    :root {
+      --brand: #B10D6E;
+      --brand-tint: #F7E4EF;
+      --ink: #20202A;
+      --sub: #5A5A66;
+      --border: #E1E3E8;
+      --bg: #F6F7F9;
+      --inc: #E04B4B;
+      --sr: #1E88D6;
+      --cr: #6A3FA0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Arial", "Helvetica Neue", -apple-system, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+    /* ---------- header ---------- */
+    header {
+      background: linear-gradient(135deg, var(--brand) 0%, #8A0A56 100%);
+      color: #fff;
+      padding: 28px 32px;
+    }
+    header .kicker {
+      font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      opacity: .85; margin-bottom: 6px;
+    }
+    header h1 { font-size: 26px; font-weight: 700; }
+    header p { font-size: 14px; opacity: .9; margin-top: 6px; }
+    /* ---------- tabs ---------- */
+    nav.tabs {
+      display: flex; gap: 4px;
+      background: #fff; border-bottom: 1px solid var(--border);
+      padding: 0 24px; position: sticky; top: 0; z-index: 10;
+    }
+    nav.tabs button {
+      appearance: none; border: none; background: transparent;
+      font: inherit; font-weight: 700; font-size: 14px;
+      padding: 14px 20px; cursor: pointer; color: var(--sub);
+      border-bottom: 3px solid transparent; transition: .15s;
+    }
+    nav.tabs button:hover { color: var(--ink); }
+    nav.tabs button.active { color: var(--brand); border-bottom-color: var(--brand); }
+    nav.tabs button .dot {
+      display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+      margin-right: 8px; vertical-align: middle;
+    }
+    button[data-tab="inc"] .dot { background: var(--inc); }
+    button[data-tab="sr"]  .dot { background: var(--sr); }
+    button[data-tab="cr"]  .dot { background: var(--cr); }
+    /* ---------- panel ---------- */
+    main { padding: 24px; }
+    .panel { display: none; }
+    .panel.active { display: block; animation: fade .2s ease; }
+    @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    .panel-head {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+    }
+    .badge {
+      font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 999px; color: #fff;
+    }
+    .badge.inc { background: var(--inc); }
+    .badge.sr  { background: var(--sr); }
+    .badge.cr  { background: var(--cr); }
+    .panel-head h2 { font-size: 18px; }
+    .panel-head p { font-size: 13px; color: var(--sub); }
+    /* ---------- lucid frame ---------- */
+    .chart-wrap {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.04);
+    }
+    .chart-wrap iframe {
+      width: 100%; height: 68vh; min-height: 420px; border: none; display: block;
+    }
+    .placeholder {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      height: 68vh; min-height: 420px; text-align: center; color: var(--sub);
+      background: repeating-linear-gradient(45deg,#fafbfc,#fafbfc 12px,#f2f4f7 12px,#f2f4f7 24px);
+      padding: 24px;
+    }
+    .placeholder strong { color: var(--ink); font-size: 15px; }
+    .placeholder code {
+      background: #fff; border: 1px solid var(--border); border-radius: 6px;
+      padding: 2px 8px; font-size: 12px; color: var(--brand);
+    }
+    footer {
+      padding: 18px 24px; font-size: 12px; color: var(--sub);
+      border-top: 1px solid var(--border); background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="kicker">OTSK IPM · ITSM Practice</div>
+    <h1>ONE ITSM Process Maps</h1>
+    <p>Incident (INC) · Service Request (SR) · Change Request (CR) — interactive Lucidchart views</p>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button data-tab="inc" class="active"><span class="dot"></span>Incident (INC)</button>
+    <button data-tab="sr"><span class="dot"></span>Service Request (SR)</button>
+    <button data-tab="cr"><span class="dot"></span>Change Request (CR)</button>
+  </nav>
+
+  <main>
+    <!-- INC -->
+    <section class="panel active" id="panel-inc">
+      <div class="panel-head">
+        <span class="badge inc">INC</span>
+        <div>
+          <h2>Incident Management Process</h2>
+          <p>Unplanned interruption — restore service ASAP.</p>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <iframe
+          data-src="https://lucid.app/documents/embedded/5549bac2-bfd5-470c-b269-7b06ccbe6c2f?pages=0_0"
+          title="Incident process map"></iframe>
+      </div>
+    </section>
+
+    <!-- SR -->
+    <section class="panel" id="panel-sr">
+      <div class="panel-head">
+        <span class="badge sr">SR</span>
+        <div>
+          <h2>Service Request Process</h2>
+          <p>Standard user request — fulfil against the service catalog.</p>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <iframe
+          data-src="https://lucid.app/documents/embedded/5549bac2-bfd5-470c-b269-7b06ccbe6c2f?pages=.K5lwjQavIa8"
+          title="Service Request process map"></iframe>
+      </div>
+    </section>
+
+    <!-- CR -->
+    <section class="panel" id="panel-cr">
+      <div class="panel-head">
+        <span class="badge cr">CR</span>
+        <div>
+          <h2>Change Request Process</h2>
+          <p>Planned change — minimize operational risk through CAB &amp; UAT.</p>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <iframe
+          data-src="https://lucid.app/documents/embedded/5549bac2-bfd5-470c-b269-7b06ccbe6c2f?pages=7W5lsQyBEh14"
+          title="Change Request process map"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Embed source: Lucidchart document <code>5549bac2-bfd5-470c-b269-7b06ccbe6c2f</code>.
+    To show each tab correctly, publish the Lucid doc (Share → Publish → Embed) and replace the
+    <code>pages=</code> id in each iframe with that tab's page id.
+  </footer>
+
+  <script>
+    // Lazy-load iframes only when a tab is opened (faster first paint)
+    const tabs = document.querySelectorAll('#tabs button');
+    const panels = { inc: 'panel-inc', sr: 'panel-sr', cr: 'panel-cr' };
+
+    function activate(key) {
+      tabs.forEach(b => b.classList.toggle('active', b.dataset.tab === key));
+      Object.entries(panels).forEach(([k, id]) => {
+        document.getElementById(id).classList.toggle('active', k === key);
+      });
+      // load iframe on demand
+      const panel = document.getElementById(panels[key]);
+      const iframe = panel.querySelector('iframe');
+      if (iframe && iframe.dataset.src && !iframe.src) {
+        iframe.src = iframe.dataset.src;
+      }
+    }
+
+    tabs.forEach(b => b.addEventListener('click', () => activate(b.dataset.tab)));
+    activate('inc'); // initial
+  </script>
+</body>
+</html>
