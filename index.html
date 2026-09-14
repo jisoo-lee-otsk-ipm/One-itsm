@@ -40,18 +40,42 @@
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
   /* ---------- hero ---------- */
-  .hero{background:linear-gradient(135deg,var(--brand) 0%,var(--brand-dk) 100%);color:#fff;
-    padding:64px 0 72px;position:relative;overflow:hidden}
-  .hero::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;
-    background:rgba(255,255,255,.08);border-radius:50%}
-  .hero .kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;opacity:.85;margin-bottom:12px}
-  .hero h1{font-size:40px;font-weight:800;line-height:1.15;max-width:760px}
-  .hero p{font-size:17px;opacity:.92;margin-top:16px;max-width:620px}
-  .hero .cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;
-    font-weight:700;font-size:14px;cursor:pointer;border:none;transition:.15s}
-  .btn.primary{background:#fff;color:var(--brand)}
-  .btn.primary:hover{transform:translateY(-1px)}
+  .hero{color:#fff;padding:76px 0 84px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(1100px 480px at 82% -10%, #D6218C 0%, rgba(214,33,140,0) 60%),
+      radial-gradient(760px 520px at 10% 120%, #5E0A57 0%, rgba(94,10,87,0) 55%),
+      linear-gradient(135deg, var(--brand) 0%, var(--brand-dk) 55%, #6E0846 100%)}
+  /* subtle dot texture */
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:radial-gradient(rgba(255,255,255,.10) 1px, transparent 1.4px);
+    background-size:22px 22px;
+    -webkit-mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.15));mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.15))}
+  /* glowing orbs */
+  .hero .orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(2px)}
+  .hero .orb.o1{right:-90px;top:-100px;width:360px;height:360px;
+    background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), rgba(255,255,255,0) 65%)}
+  .hero .orb.o2{right:120px;bottom:-140px;width:260px;height:260px;
+    background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.14), rgba(255,255,255,0) 68%)}
+  .hero .orb.o3{left:-70px;bottom:-90px;width:230px;height:230px;
+    background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.10), rgba(255,255,255,0) 70%)}
+  .hero .wrap{position:relative;z-index:2}
+  .hero .kicker{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:2.5px;
+    text-transform:uppercase;font-weight:700;margin-bottom:18px;padding:7px 14px;border-radius:999px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(6px)}
+  .hero .kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:#7CF6C6;
+    box-shadow:0 0 0 4px rgba(124,246,198,.25)}
+  .hero h1{font-size:44px;font-weight:800;line-height:1.12;max-width:820px;letter-spacing:-.5px}
+  .hero h1 .accent{background:linear-gradient(90deg,#FFE0F0,#FFC7E4);-webkit-background-clip:text;
+    background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{font-size:17px;opacity:.94;margin-top:18px;max-width:640px;line-height:1.6}
+  .hero .cta{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+  .hero .chips{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px}
+  .hero .chips span{font-size:12px;font-weight:600;padding:6px 12px;border-radius:8px;
+    background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:11px;
+    font-weight:700;font-size:14px;cursor:pointer;border:none;transition:.18s}
+  .btn.primary{background:#fff;color:var(--brand);box-shadow:0 10px 24px rgba(0,0,0,.16)}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.22)}
   .btn.ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35)}
   .btn.ghost:hover{background:rgba(255,255,255,.24)}
 
@@ -151,13 +175,20 @@
 <!-- ============ HOME ============ -->
 <main class="page active" id="page-home">
   <div class="hero">
+    <span class="orb o1"></span>
+    <span class="orb o2"></span>
+    <span class="orb o3"></span>
     <div class="wrap">
       <div class="kicker">Digital Strategy &amp; Innovation · OTSK IPM</div>
-      <h1>ITSM Process Hub for the ONE System Environment</h1>
-      <p>A single place to understand and navigate our Incident, Service Request, and Change Request processes across eCom, OPUS, ONE Finance, ERP-BRIM, EDI &amp; IAM.</p>
+      <h1>ITSM Process Hub for the <span class="accent">ONE System Environment</span></h1>
+      <p>A single place to understand and navigate our Incident, Service Request, and Change Request processes across our core logistics &amp; finance platforms.</p>
       <div class="cta">
         <button class="btn primary" data-go="process">View Process Maps →</button>
         <button class="btn ghost" data-go="resources">Browse Resources</button>
+      </div>
+      <div class="chips">
+        <span>eCom</span><span>OPUS</span><span>ONE Finance</span>
+        <span>ERP-BRIM</span><span>EDI</span><span>IAM</span>
       </div>
     </div>
   </div>
